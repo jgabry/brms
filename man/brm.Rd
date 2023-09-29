@@ -255,11 +255,12 @@ session via the \code{"future"} option. The execution type is controlled via
 \code{\link[future:plan]{plan}} (see the examples section below).}
 
 \item{silent}{Verbosity level between \code{0} and \code{2}.
-If \code{1} (the default), most of the
-informational messages of compiler and sampler are suppressed.
-If \code{2}, even more messages are suppressed. The actual
-sampling progress is still printed. Set \code{refresh = 0} to turn this off
-as well. If using \code{backend = "rstan"} you can also set
+If \code{0}, all messages from the \code{backend} are shown.
+If \code{1} (the default), most of the informational messages from the compiler
+and sampler are suppressed.
+If \code{2}, even more messages are suppressed and if \code{backend = "cmdstanr"}
+then so are the sampling progress updates. Setting \code{refresh = 0} will also
+turn off sampling progress updates. If using \code{backend = "rstan"} you can also set
 \code{open_progress = FALSE} to prevent opening additional progress bars.}
 
 \item{seed}{The seed for random number generation to make results

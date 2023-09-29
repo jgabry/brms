@@ -278,9 +278,12 @@ fit_model <- function(model, backend, ...) {
       iter_warmup = warmup,
       chains, thin,
       parallel_chains = cores,
-      show_messages = !silent,
+      show_messages = switch(silent + 1, TRUE, TRUE, FALSE),
       fixed_param = algorithm == "fixed_param"
     )
+    if (utils::packageVersion("cmdstanr") >= "0.6.0") {
+      args$show_exceptions <- switch(silent + 1, TRUE, FALSE, FALSE)
+    }
     out <- do_call(model$sample, args)
   } else if (algorithm %in% c("fullrank", "meanfield")) {
     # vb does not support parallel execution
