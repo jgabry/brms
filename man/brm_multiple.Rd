@@ -116,7 +116,7 @@ block of the generated \pkg{Stan} code. It is now recommended to use the
 \item{silent}{Verbosity level between \code{0} and \code{2}.
 If \code{0}, all messages from the \code{backend} are shown.
 If \code{1} (the default), most of the informational messages from the compiler
-and sampler are suppressed.
+and sampler are suppressed. The behavior depends on the \code{backend}.
 If \code{2}, even more messages are suppressed and if \code{backend = "cmdstanr"}
 then so are the sampling progress updates. Setting \code{refresh = 0} will also
 turn off sampling progress updates. If using \code{backend = "rstan"} you can also set
